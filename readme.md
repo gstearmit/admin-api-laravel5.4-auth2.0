@@ -64,7 +64,11 @@ Run Docker :
   Step 2 : Chạy các lệnh artisan hay một số lệnh bên trong docker dùng  
         docker-compose exec app "__ Lệnh muốn chạy __"
 
-  Ví dụ: docker-compose exec app php artisan migrate
-          docker-compose exec app artisan serve
-          
-  View : http://localhost:8080/        
+  Ví dụ:  docker-compose exec app php artisan migrate
+          docker-compose exec app php artisan serve  // run serve
+         ---> View : http://localhost:8080/   
+ Step 3: 
+         docker-compose exec app php artisan migrate
+         docker-compose exec app php artisan db:seed
+          > Default Username/Password: admin@example.com / password
+        
