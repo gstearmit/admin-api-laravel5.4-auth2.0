@@ -158,4 +158,7 @@ INSTAGRAM_REDIRECT_URI=http://laravel-auth.local/social/handle/instagram
 37SIGNALS_REDIRECT_URI=http://laravel-auth.local/social/handle/37signals
 
 ```
+npm run watch
+php artisan serve --port=8080
+
  
