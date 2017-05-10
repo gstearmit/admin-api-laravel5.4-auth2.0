@@ -61,7 +61,7 @@ Run Nomal :
 Run Docker : 
   Step 1 : docker-compose up
 
-  Step 2 : Chạy các lệnh artisan hay một số lệnh bên trong docker dùng  
+  Step 2 :  inside docker run
         docker-compose exec app "__ Lệnh muốn chạy __"
 
   Ví dụ:  docker-compose exec app php artisan migrate
@@ -70,5 +70,5 @@ Run Docker :
  Step 3: 
          docker-compose exec app php artisan migrate
          docker-compose exec app php artisan db:seed
-          > Default Username/Password: admin@example.com / password
+          ----> Default Username/Password: admin@example.com / password
         

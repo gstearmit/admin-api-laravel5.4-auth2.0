@@ -30,12 +30,17 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=homestead"
-      - "MYSQL_USER=homestead"
-      - "MYSQL_PASSWORD=secret"
-      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_DATABASE=weshop_global_v3_migration"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=''"
+      - "MYSQL_ROOT_PASSWORD=''"
     ports:
         - "33061:3306"
 
 volumes:
   dbdata:
+
+
+  # docker stop $(docker ps -a -q)
+  # docker rm $(docker ps -a -q)
+  # DB_DATABASE=weshop_global_v3
