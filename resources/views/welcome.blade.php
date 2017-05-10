@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
         <meta charset="utf-8">
@@ -49,6 +49,10 @@
                 font-size: 84px;
             }
 
+            .title small {
+                font-size: 60px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -79,9 +83,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel 5.4 <br /><small>Auth 2.0 + Weshop Admin V3 </small>
                 </div>
 
+                <!--
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -89,6 +94,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                -->
             </div>
         </div>
     </body>

@@ -2,7 +2,7 @@ version: '2'
 services:
 
   # The Application
-  app:
+  appv3:
     build:
       context: ./
       dockerfile: app.dockerfile
@@ -14,23 +14,23 @@ services:
       - "DB_HOST=database"
 
   # The Web Server
-  web:
+  webv3:
     build:
       context: ./
       dockerfile: web.dockerfile
     working_dir: /var/www
     volumes_from:
-      - app
+      - appv3
     ports:
       - 8080:80
 
   # The Database
-  database:
+  databasev3:
     image: mysql
     volumes:
       - dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=weshop_global_v3_migration"
+      - "MYSQL_DATABASE=weshop_global_v3_refecter"
       - "MYSQL_USER=root"
       - "MYSQL_PASSWORD=''"
       - "MYSQL_ROOT_PASSWORD=''"
@@ -38,7 +38,7 @@ services:
         - "33061:3306"
 
 volumes:
-  dbdata:
+  dbdatav3:
 
 
   # docker stop $(docker ps -a -q)

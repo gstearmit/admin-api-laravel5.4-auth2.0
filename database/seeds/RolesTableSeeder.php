@@ -1,5 +1,9 @@
 <?php
 
+use App\User;
+use jeremykenedy\LaravelRoles\Models\Role;
+use jeremykenedy\LaravelRoles\Models\Permission;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder
@@ -11,40 +15,37 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->insert([
-            [
-                'id' => 1,
-                'name' => 'Super Admin',
-                'slug' => 'admin.super',
-                'description' => 'Super Admin',
-                'level' => '1',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ], [
-                'id' => 2,
-                'name' => 'User Admin',
-                'slug' => 'admin.user',
-                'description' => 'Can manage users',
-                'level' => '1',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ], [
-                'id' => 3,
-                'name' => 'Role Admin',
-                'slug' => 'admin.role',
-                'description' => 'Can manage user roles',
-                'level' => '1',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ], [
-                'id' => 4,
-                'name' => 'Permission Admin',
-                'slug' => 'admin.permission',
-                'description' => 'Can manage permissions',
-                'level' => '1',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ],
-        ]);
+	    /**
+	     * Add Roles
+	     *
+	     */
+    	if (Role::where('name', '=', 'Admin')->first() === null) {
+	        $adminRole = Role::create([
+	            'name' => 'Admin',
+	            'slug' => 'admin',
+	            'description' => 'Admin Role',
+	            'level' => 5,
+        	]);
+	    }
+
+    	if (Role::where('name', '=', 'User')->first() === null) {
+	        $userRole = Role::create([
+	            'name' => 'User',
+	            'slug' => 'user',
+	            'description' => 'User Role',
+	            'level' => 1,
+	        ]);
+	    }
+
+    	if (Role::where('name', '=', 'Unverified')->first() === null) {
+	        $userRole = Role::create([
+	            'name' => 'Unverified',
+	            'slug' => 'unverified',
+	            'description' => 'Unverified Role',
+	            'level' => 0,
+	        ]);
+	    }
+
     }
+
 }

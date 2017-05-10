@@ -1,5 +1,9 @@
 <?php
 
+use App\User;
+use jeremykenedy\LaravelRoles\Models\Role;
+use jeremykenedy\LaravelRoles\Models\Permission;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class PermissionsTableSeeder extends Seeder
@@ -11,26 +15,46 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('permissions')->insert([
-            [
-                'id' => 1,
-                'name' => 'Manage Users',
-                'slug' => 'manage.users',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ], [
-                'id' => 2,
-                'name' => 'Manage Roles',
-                'slug' => 'manage.roles',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ], [
-                'id' => 3,
-                'name' => 'Manage Permissions',
-                'slug' => 'manage.permissions',
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            ],
-        ]);
+
+	    /**
+	     * Add Permissions
+	     *
+	     */
+        if (Permission::where('name', '=', 'Can View Users')->first() === null) {
+			Permission::create([
+			    'name' => 'Can View Users',
+			    'slug' => 'view.users',
+			    'description' => 'Can view users',
+			    'model' => 'Permission',
+			]);
+        }
+
+        if (Permission::where('name', '=', 'Can Create Users')->first() === null) {
+			Permission::create([
+			    'name' => 'Can Create Users',
+			    'slug' => 'create.users',
+			    'description' => 'Can create new users',
+			    'model' => 'Permission',
+			]);
+        }
+
+        if (Permission::where('name', '=', 'Can Edit Users')->first() === null) {
+			Permission::create([
+			    'name' => 'Can Edit Users',
+			    'slug' => 'edit.users',
+			    'description' => 'Can edit users',
+			    'model' => 'Permission',
+			]);
+        }
+
+        if (Permission::where('name', '=', 'Can Delete Users')->first() === null) {
+			Permission::create([
+			    'name' => 'Can Delete Users',
+			    'slug' => 'delete.users',
+			    'description' => 'Can delete users',
+			    'model' => 'Permission',
+			]);
+        }
+
     }
 }

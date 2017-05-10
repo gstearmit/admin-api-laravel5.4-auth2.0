@@ -1,56 +1,3 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
-
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- **[Codecourse](https://www.codecourse.com)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
 
 --------------Step By Step-----------------------
 Run Nomal : 
@@ -71,4 +18,144 @@ Run Docker :
          docker-compose exec app php artisan migrate
          docker-compose exec app php artisan db:seed
           ----> Default Username/Password: admin@example.com / password
-        
+
+### Installation Instructions
+
+1. Run `sudo git clone https://github.com/jeremykenedy/laravel-auth.git laravel-auth`
+2. Create a MySQL database for the project
+    * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
+    * ```create database laravelAuth;```
+    * ```\q```
+3. From the projects root run `cp .env.example .env`
+4. Configure your `.env` file // NOTE: Google API Key will prevent maps error
+5. Run `sudo composer update` from the projects root folder
+6. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=config`
+7. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=migrations`
+8. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=seeds`
+9. From the projects root folder run `sudo chmod -R 755 ../laravel-auth`
+10. From the projects root folder run `php artisan key:generate`
+11. From the projects root folder run `php artisan migrate`
+12. From the projects root folder run `composer dump-autoload`
+13. From the projects root folder run `php artisan db:seed`
+
+
+npm install
+ 
+
+|Email|Password|Access|
+|:------------|:------------|:------------|
+|user@user.com|password|User Access|
+|admin@admin.com|password|Admin Access|
+
+ 
+### Environment File
+
+Example `.env` file:
+
+```
+
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravelAuth
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+MAIL_FROM_ADDRESS=
+MAIL_FROM_NAME=''
+
+ACTIVATION=true
+ACTIVATION_LIMIT_TIME_PERIOD=24
+ACTIVATION_LIMIT_MAX_ATTEMPTS=3
+
+NULL_IP_ADDRESS=0.0.0.0
+
+DEBUG_BAR_ENVIRONMENT=local
+
+USER_RESTORE_CUTOFF_DAYS=31
+USER_RESTORE_ENRYPTION_KEY=
+
+DEFAULT_GRAVATAR_SIZE=80
+DEFAULT_GRAVATAR_FALLBACK=http://c1940652.r52.cf0.rackcdn.com/51ce28d0fb4f442061000000/Screen-Shot-2013-06-28-at-5.22.23-PM.png
+DEFAULT_GRAVATAR_SECURE=false
+DEFAULT_GRAVATAR_MAX_RATING=g
+DEFAULT_GRAVATAR_FORCE_DEFAULT=false
+DEFAULT_GRAVATAR_FORCE_EXTENSION=jpg
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+
+// NOTE: YOU CAN REMOVE THE KEY CALL IN app.blade.php IF YOU GET A POP UP AND DO NOT WANT TO SETUP A KEY FOR DEV
+# Google Maps API v3 Key - https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key
+GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
+
+# https://console.developers.google.com/ - NEED OAUTH CREDS
+GOOGLE_ID=YOURGOOGLEPLUSidHERE
+GOOGLE_SECRET=YOURGOOGLEPLUSsecretHERE
+GOOGLE_REDIRECT=http://yourwebsiteURLhere.com/social/handle/google
+
+# https://www.google.com/recaptcha/admin#list
+RE_CAP_SITE=YOURGOOGLECAPTCHAsitekeyHERE
+RE_CAP_SECRET=YOURGOOGLECAPTCHAsecretHERE
+
+# https://developers.facebook.com/
+FB_ID=YOURFACEBOOKidHERE
+FB_SECRET=YOURFACEBOOKsecretHERE
+FB_REDIRECT=http://yourwebsiteURLhere.com/social/handle/facebook
+
+# https://apps.twitter.com/
+TW_ID=YOURTWITTERidHERE
+TW_SECRET=YOURTWITTERkeyHERE
+TW_REDIRECT=http://yourwebsiteURLhere.com/social/handle/twitter
+
+# https://github.com/settings/applications/new
+GITHUB_ID=YOURIDHERE
+GITHUB_SECRET=YOURSECRETHERE
+GITHUB_URL=https://larablog.io/social/handle/github
+
+# https://developers.google.com/youtube/v3/getting-started
+YOUTUBE_KEY=YOURKEYHERE
+YOUTUBE_SECRET=YOURSECRETHERE
+YOUTUBE_REDIRECT_URI=https://larablog.io/social/handle/youtube
+
+# http://www.twitch.tv/kraken/oauth2/clients/new
+TWITCH_KEY=YOURKEYHERE
+TWITCH_SECRET=YOURSECRETHERE
+TWITCH_REDIRECT_URI=http://laravel-auth.local/social/handle/twitch
+
+# https://instagram.com/developer/register/
+INSTAGRAM_KEY=YOURKEYHERE
+INSTAGRAM_SECRET=YOURSECRETHERE
+INSTAGRAM_REDIRECT_URI=http://laravel-auth.local/social/handle/instagram
+
+# https://basecamp.com/
+# https://github.com/basecamp/basecamp-classic-api
+37SIGNALS_KEY=YOURKEYHERE
+37SIGNALS_SECRET=YOURSECRETHERE
+37SIGNALS_REDIRECT_URI=http://laravel-auth.local/social/handle/37signals
+
+```
+ 
