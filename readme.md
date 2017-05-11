@@ -60,9 +60,9 @@ APP_URL=http://localhost
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravelAuth
-DB_USERNAME=homestead
-DB_PASSWORD=secret
+DB_DATABASE=weshop_global_v3_refecter
+DB_USERNAME=root
+DB_PASSWORD=null
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
